@@ -1,0 +1,5 @@
+baidu_aip==2.2.18.0
+PyMySQL==1.0.2
+plotly==4.14.3
+pandas==1.2.0
+playsound==1.2.2
