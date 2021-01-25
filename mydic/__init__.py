@@ -9,6 +9,8 @@ from plotly import figure_factory  as FF
 from plotly.offline import plot
 from aip import AipSpeech
 from playsound import playsound
+import os
+import sys
 
 def audio_output(word):
     """ 你的 APPID AK SK """
@@ -16,19 +18,20 @@ def audio_output(word):
     API_KEY = '4uY0GkFIXXE7vDY0jBKDT44n'
     SECRET_KEY = 'PNwRoSMswRzuKpEFjvGBpjelINT8FY49'
     client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
-    result = client.synthesis(word, 'zh', 1, {'vol': 9, 'spd': 5, 'pit': 5, 'per': 1})
+    result = client.synthesis(word, 'zh', 1, {'vol': 9, 'spd': 6, 'pit': 5, 'per': 1})
     if not isinstance(result, dict):
         with open('audio.mp3', 'wb') as f:
             f.write(result)
     playsound('audio.mp3')
+    os.remove('audio.mp3')
 class BaiduTranslator():
-    def result(self, q):
+    def result(self, q,fromlang):
         appid = '20210125000680464'  # 填写你的appid
         secretKey = 'gCxiZER_Z0qKqiAbqh86'  # 填写你的密钥
         httpClient = None
         myurl = '/api/trans/vip/translate'
-        fromLang = 'auto'  # 原文语种
-        toLang = 'zh'  # 译文语种
+        fromLang = 'auto'
+        toLang = fromlang
         salt = random.randint(32768, 65536)
         q = q
         sign = appid + q + str(salt) + secretKey
