@@ -17,7 +17,7 @@
 ### 运行教程：
 
 ```bash
-git clone git@github.com:skywalkerch/mydic.git
+git clone https://github.com/skywalkerch/mydic.git
 ```
 
 ```bash
