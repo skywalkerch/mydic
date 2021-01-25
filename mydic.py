@@ -17,8 +17,11 @@ while True:
         dst = bt.result(word, menu())
         zh = dst['trans_result'][0]['dst']
         print("单词:" + word + "\n中文:" + zh)
-        audio_output(word)
-        audio_output(zh)
+        try:
+            audio_output(word)
+            audio_output(zh)
+        except Exception:
+            pass
         try:
             database.dbconnecting(word, zh)
             print("数据库写入成功")
