@@ -39,4 +39,4 @@ while True:
             pass
         sys.exit()
     elif exit1 != 'exit':
-        i = os.system('cls')
+        i = os.system('clear')
