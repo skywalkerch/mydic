@@ -39,4 +39,7 @@ while True:
             pass
         sys.exit()
     elif exit1 != 'exit':
-        i = os.system('clear')
+        if os.name=='posix':
+         i = os.system('clear')
+        elif os.name=='nt':
+         i=os.system('cls')
