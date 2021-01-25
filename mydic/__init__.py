@@ -45,8 +45,6 @@ class BaiduTranslator():
             result_all = response.read().decode("utf-8")
             result = json.loads(result_all)
             return result
-
-            DataBase.dbconnecting(q, result['trans_result'][0]['dst'])
         except Exception as e:
             print("你的网络连接出现了问题或者是你的查询有问题")
         finally:

@@ -4,13 +4,13 @@ from mydic import *
 
 database = DataBase()
 bt = BaiduTranslator()
-
+bo = input("是否要导出数据库(y:是 enter:跳过):")
+if bo == 'y':
+    database.database_table_output()
 while True:
-    bo = input("是否要导出数据库(y:是 enter:跳过):")
-    if bo == 'y':
-        database.database_table_output()
+
     try:
-        word = input("请输入你要查询的单词:")
+        word = input("请输入你要查询的单词或句子:")
         dst = bt.result(word)
         zh = dst['trans_result'][0]['dst']
         print("单词:" + word + "中文:" + zh)
